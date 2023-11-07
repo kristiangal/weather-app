@@ -20,8 +20,6 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Home from "./pages/Home.tsx";
 
-import { HeaderProps } from "./types/types.ts";
-
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter(
@@ -55,7 +53,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header height={64} />
         <RouterProvider router={router} />
       </ThemeProvider>
     </React.StrictMode>

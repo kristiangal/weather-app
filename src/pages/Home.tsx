@@ -3,7 +3,7 @@ import { grey } from "@mui/material/colors";
 
 const Home = () => {
   return (
-    <Box sx={{ textAlign: "center", paddingTop: "24px" }}>
+    <Box sx={{ textAlign: "center", paddingTop: "24px", marginTop: "auto" }}>
       <Typography variant="h4" component="h2" fontWeight={600}>
         Hey there!
       </Typography>
