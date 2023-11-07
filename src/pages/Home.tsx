@@ -1,7 +1,19 @@
 import { TextField, Button, Typography, Box, FormControl } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getBaseWeatherUri } from "../utils/helperFunctions";
+import { useQuery } from "react-query";
 
 const Home = () => {
+  const [locationValue, setLocationValue] = useState("");
+  const navigate = useNavigate();
+
+  const searchForLocation = () => {
+    const fetchUri = `${getBaseWeatherUri()}&q=${locationValue}`;
+    navigate("/result", { state: fetchUri });
+  };
+
   return (
     <Box sx={{ textAlign: "center", paddingTop: "24px", marginTop: "auto" }}>
       <Typography variant="h4" component="h2" fontWeight={600}>
@@ -16,8 +28,12 @@ const Home = () => {
           label="Location"
           variant="standard"
           sx={{ marginBottom: "36px" }}
+          value={locationValue}
+          onChange={(e) => setLocationValue(e.target.value)}
         />
-        <Button variant="outlined">Search</Button>
+        <Button onClick={searchForLocation} variant="outlined">
+          Search
+        </Button>
       </FormControl>
     </Box>
   );

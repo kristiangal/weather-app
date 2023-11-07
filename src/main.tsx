@@ -19,6 +19,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Home from "./pages/Home.tsx";
+import Result from "./pages/Result.tsx";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<App />}>
       <Route path="/" element={<Home />} />
+      <Route path="/result" element={<Result />} />
     </Route>
   )
 );
