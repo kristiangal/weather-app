@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { WeatherInfo } from "../types/types";
 
 import { Box, Typography } from "@mui/material";
-import { Image } from "@mui/icons-material";
+import BigResult from "../components/BigResult";
 
 const Result = () => {
   const location = useLocation();
@@ -36,19 +36,13 @@ const Result = () => {
 
   if (isLoading) return <div>Loading...</div>;
 
-  return (
-    <Box>
-      <Typography variant="h3" component="h2">
-        {data?.name}
-      </Typography>
-      <Typography variant="h5" component="h3">
-        {data?.country}
-      </Typography>
-      <img src={data?.icon} />
-      <Typography variant="h5">{data?.condition}</Typography>
-      <Typography variant="h2">{data?.temp} C</Typography>
-    </Box>
-  );
+  if (data) {
+    return (
+      <div>
+        <BigResult data={data} />
+      </div>
+    );
+  }
 };
 
 export default Result;

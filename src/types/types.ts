@@ -10,3 +10,7 @@ export type WeatherInfo = {
   temp: number;
   condition: string;
 };
+
+export type BigResultProps = {
+  data: WeatherInfo;
+};

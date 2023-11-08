@@ -1,17 +1,24 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Toolbar, Typography, Link } from "@mui/material";
 import { Cloud } from "@mui/icons-material";
 import { HeaderProps } from "../types/types";
-import { Link } from "react-router-dom";
+
+import { Link as RouterLink } from "react-router-dom";
 
 const Header: React.FC<HeaderProps> = (props) => {
   return (
     <AppBar position="relative">
       <Toolbar sx={{ height: `${props.height}px` }}>
-        <Link to="/">
-          <Cloud sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
+        <Cloud sx={{ mr: 2 }} />
+        <Link component={RouterLink} to="/">
+          <Typography
+            href="/"
+            component="a"
+            variant="h6"
+            color="black"
+            sx={{ textDecoration: "none" }}
+          >
             Weather App
-          </Typography>
+          </Typography>{" "}
         </Link>
       </Toolbar>
     </AppBar>
