@@ -3,7 +3,6 @@ import { grey } from "@mui/material/colors";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getBaseWeatherUri } from "../utils/helperFunctions";
-import { useQuery } from "react-query";
 
 const Home = () => {
   const [locationValue, setLocationValue] = useState("");
