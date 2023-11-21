@@ -5,6 +5,7 @@ import { WeatherInfo } from "../types/types";
 
 import { Box, Typography } from "@mui/material";
 import BigResult from "../components/BigResult";
+import SecondaryHeader from "../components/SecondaryHeader";
 
 const Result = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const Result = () => {
     const { current, location, forecast } = data;
 
     const info: WeatherInfo = {
-      temp: current.temp_c,
+      temp: Math.round(current.temp_c),
       name: location.name,
       condition: current.condition.text,
       icon: current.condition.icon,
@@ -38,9 +39,10 @@ const Result = () => {
 
   if (data) {
     return (
-      <div>
+      <>
+        <SecondaryHeader locationName={data.name} />
         <BigResult data={data} />
-      </div>
+      </>
     );
   }
 };

@@ -1,18 +1,31 @@
 import { Typography, Box } from "@mui/material";
 import { BigResultProps } from "../types/types";
+import { grey } from "@mui/material/colors";
 
 const BigResult: React.FC<BigResultProps> = ({ data }) => {
   return (
-    <Box textAlign="center">
-      <Typography variant="h3" component="h2">
+    <Box
+      textAlign="center"
+      sx={{
+        height: "50%",
+        backgroundColor: "primary['dark']",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Typography variant="h4" component="h2">
         {data.name}
       </Typography>
-      <Typography variant="h5" component="h3">
+      <Typography color={grey[700]} sx={{ marginBottom: "8px" }}>
         {data.country}
       </Typography>
-      <img src={data.icon} />
-      <Typography variant="h5">{data.condition}</Typography>
-      <Typography variant="h2">{data.temp} C</Typography>
+      <div className="conditionInfo">
+        <img src={data.icon} height={100} width={100} />
+        <Typography color={grey[700]}>{data.condition}</Typography>
+      </div>
+      <Typography variant="h3">{data.temp} °C</Typography>
     </Box>
   );
 };

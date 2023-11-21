@@ -14,3 +14,7 @@ export type WeatherInfo = {
 export type BigResultProps = {
   data: WeatherInfo;
 };
+
+export type SecondaryHeaderProps = {
+  locationName: string;
+};
