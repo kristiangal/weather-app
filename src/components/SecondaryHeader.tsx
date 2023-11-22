@@ -7,7 +7,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({ locationName }) => {
   return (
-    <Box sx={{ display: "flex", paddingY: "24px" }}>
+    <Box sx={{ display: "flex", paddingTop: "24px", paddingBottom: "12px" }}>
       <Link color={grey[700]} component={RouterLink} to="/">
         <ArrowBack sx={{ fontSize: "32px" }} />
       </Link>

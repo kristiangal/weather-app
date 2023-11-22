@@ -6,9 +6,17 @@ import { getBaseWeatherUri } from "../utils/helperFunctions";
 
 const Home = () => {
   const [locationValue, setLocationValue] = useState("");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const searchForLocation = () => {
+    if (locationValue === "") {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 5000);
+      return;
+    }
     const fetchUri = `${getBaseWeatherUri()}&q=${locationValue}`;
     navigate("/result", { state: fetchUri });
   };
@@ -23,11 +31,13 @@ const Home = () => {
       </Typography>
       <FormControl className="inputGroup" sx={{ width: "50%" }}>
         <TextField
+          error={error}
           id="standard-basic"
           label="Location"
           variant="standard"
           sx={{ marginBottom: "36px" }}
           value={locationValue}
+          helperText={error ? "Required field" : ""}
           onChange={(e) => setLocationValue(e.target.value)}
         />
         <Button onClick={searchForLocation} variant="outlined">
